@@ -1,0 +1,347 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package synsoftech.notifications;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
+import java.util.logging.Level;
+import javax.swing.Timer;
+import synsoftech.util.Center;
+
+/**
+ *
+ * @author Guinness
+ */
+public class Dlg_notification extends javax.swing.JDialog {
+
+    /**
+     * Creates new form Dlg_notification
+     */
+    //<editor-fold defaultstate="collapsed" desc=" callback ">
+    private Callback callback;
+
+    public void setCallback(Callback callback) {
+        this.callback = callback;
+
+    }
+
+    public static interface Callback {
+
+        void ok(OutputData data);
+    }
+
+    public static class InputData {
+    }
+
+    public static class OutputData {
+    }
+//</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc=" Constructors ">
+    private Dlg_notification(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        setUndecorated(true);
+        initComponents();
+        myInit();
+    }
+
+    private Dlg_notification(java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
+        setUndecorated(true);
+        initComponents();
+        myInit();
+    }
+
+    public Dlg_notification() {
+        super();
+        setUndecorated(true);
+        initComponents();
+        myInit();
+
+    }
+    private Dlg_notification myRef;
+
+    private void setThisRef(Dlg_notification myRef) {
+        this.myRef = myRef;
+    }
+    private static java.util.Map<Object, Dlg_notification> dialogContainer = new java.util.HashMap();
+
+    public static void clearUpFirst(java.awt.Window parent) {
+        if (dialogContainer.containsKey(parent)) {
+            dialogContainer.remove(parent);
+        }
+    }
+
+    public static Dlg_notification create(java.awt.Window parent, boolean modal) {
+
+        if (modal) {
+            return create(parent, ModalityType.APPLICATION_MODAL);
+        }
+
+        return create(parent, ModalityType.MODELESS);
+
+    }
+
+    public static Dlg_notification create(java.awt.Window parent, java.awt.Dialog.ModalityType modalType) {
+
+        if (parent instanceof java.awt.Frame) {
+
+            Dlg_notification dialog = dialogContainer.get(parent);
+
+            if (dialog == null) {
+                dialog = new Dlg_notification((java.awt.Frame) parent, false);
+                dialog.setModalityType(modalType);
+                dialogContainer.put(parent, dialog);
+                java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
+                dialog.setThisRef(dialog);
+                return dialog;
+            } else {
+                dialog.setModalityType(modalType);
+                return dialog;
+            }
+
+        }
+
+        if (parent instanceof java.awt.Dialog) {
+            Dlg_notification dialog = dialogContainer.get(parent);
+
+            if (dialog == null) {
+                dialog = new Dlg_notification((java.awt.Dialog) parent, false);
+                dialog.setModalityType(modalType);
+                dialogContainer.put(parent, dialog);
+                java.util.logging.Logger.getAnonymousLogger().log(Level.INFO, "instances: {0}", dialogContainer.size());
+                dialog.setThisRef(dialog);
+                return dialog;
+            } else {
+                dialog.setModalityType(modalType);
+                return dialog;
+            }
+
+        }
+
+        return null;
+
+    }
+    //</editor-fold>    
+
+    //<editor-fold defaultstate="collapsed" desc=" main ">
+    public static void main(String args[]) {
+
+        try {
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        Dlg_notification dialog = Dlg_notification.create(new javax.swing.JFrame(), true);
+        Center.setCenter(dialog);
+        dialog.setShape(new RoundRectangle2D.Double(1, 1, 508, 115, 5, 5));
+        dialog.setVisible(true);
+
+    }
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc=" added ">
+    @Override
+    public void setVisible(boolean visible) {
+        super.setVisible(visible);
+        if (visible == true) {
+            getContentPane().removeAll();
+            initComponents();
+            myInit();
+            repaint();
+        }
+
+    }
+
+    public javax.swing.JPanel getSurface() {
+        return (javax.swing.JPanel) getContentPane();
+    }
+
+    public void nullify() {
+        myRef.setVisible(false);
+        myRef = null;
+    }
+    //</editor-fold>
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        lbl_message = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(217, 237, 247));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(200, 213, 195)));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/separator.png"))); // NOI18N
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/close.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(138, 109, 59));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/check.png"))); // NOI18N
+        jLabel2.setText("SUCCESS MESSAGE");
+
+        lbl_message.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        lbl_message.setForeground(new java.awt.Color(138, 109, 59));
+        lbl_message.setText("You successfully read this important alert message.");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 18, Short.MAX_VALUE))
+                    .addComponent(lbl_message, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_message, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.disposed();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_message;
+    // End of variables declaration//GEN-END:variables
+    private void myInit() {
+        init_key();
+        init_timer();
+    }
+    int i = 0;
+    Timer t = new Timer(500, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (i == 1) {
+                Dlg_notification.this.disposed();
+            }
+            i++;
+        }
+    });
+
+    private void init_timer() {
+        t.start();
+    }
+
+    public void do_pass(int status, String message) {
+        if (status == 0) {
+            //success
+            jLabel2.setText("Success Message");
+            lbl_message.setText("Successfully Added");
+            jPanel1.setBackground(new java.awt.Color(223, 240, 216));
+            jLabel2.setForeground(new java.awt.Color(60, 118, 61));
+            lbl_message.setForeground(new java.awt.Color(60, 118, 61));
+
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/check.png"))); // NOI18N
+        }
+        if (status == 1) {
+            //information
+            jLabel2.setText("Info Message");
+            lbl_message.setText(message);
+            jPanel1.setBackground(new java.awt.Color(217, 237, 247));
+
+            jLabel2.setForeground(new java.awt.Color(49, 112, 143));
+            lbl_message.setForeground(new java.awt.Color(49, 112, 143));
+
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/info.png"))); // NOI18N
+        }
+        if (status == 2) {
+            //warning
+            jLabel2.setText("Warning Message");
+            lbl_message.setText("Successfully Deleted");
+
+            jPanel1.setBackground(new java.awt.Color(252, 248, 227));
+            jLabel2.setForeground(new java.awt.Color(138, 109, 59));
+            lbl_message.setForeground(new java.awt.Color(138, 109, 59));
+
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/circle.png"))); // NOI18N
+        }
+        if (status == 3) {
+            //
+            jLabel2.setText("Danger Message");
+            lbl_message.setText("Change a few things up and try submitting again");
+
+            jPanel1.setBackground(new java.awt.Color(242, 222, 222));
+            jLabel2.setForeground(new java.awt.Color(169, 68, 66));
+            lbl_message.setForeground(new java.awt.Color(169, 68, 66));
+
+            jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/synsoftech/notifications/hand.png"))); // NOI18N
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="Key">
+    private void disposed() {
+        this.dispose();
+    }
+
+    private void init_key() {
+
+    }
+    // </editor-fold>
+
+}

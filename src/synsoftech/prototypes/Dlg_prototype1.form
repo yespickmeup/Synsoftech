@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jXLabel1" alignment="1" min="-2" pref="729" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jButton3" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="143" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" pref="143" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="jXLabel1" min="-2" pref="421" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jButton3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="79" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="org.jdesktop.swingx.JXLabel" name="jXLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tristique arcu ante. Aenean eros enim, mattis non vulputate et, mattis id nibh. Duis tempor erat ipsum, sed ultrices odio sodales eu. Etiam lacus arcu, lacinia eu justo vitae, ultricies imperdiet nulla. Morbi at magna ac sapien interdum pulvinar malesuada sit amet augue. Aliquam id commodo leo. Vestibulum quis mattis nisi. Suspendisse non massa consequat, molestie lectus et, consequat libero.  Sed eu augue a felis luctus ornare. Pellentesque cursus ullamcorper libero, in ornare tellus euismod ac. Praesent dolor tellus, dapibus vitae tincidunt eget, vestibulum vel magna. Integer venenatis ipsum erat, et dictum libero rutrum eget. Suspendisse scelerisque mattis tincidunt. Duis euismod elementum dictum. Vivamus a turpis augue. Maecenas in nunc et nisi tincidunt imperdiet. Sed sed rutrum metus, a tristique metus. Maecenas tempor tellus lacinia nisl cursus bibendum. Morbi sit amet pellentesque libero, in lobortis nibh. In vitae arcu urna. Phasellus quis lorem ut orci sagittis tincidunt.  Sed fermentum tellus vel elit egestas, vel suscipit sapien cursus. Nulla posuere ligula lobortis ex posuere ornare. Ut elementum ultricies ante quis vestibulum. Donec auctor scelerisque neque, ut molestie elit tincidunt vel. Nam non ante quis ex dapibus sodales non at eros. Pellentesque condimentum sem vel mollis ultricies. Nunc id ante est. Nam iaculis rhoncus eros, scelerisque mattis mauris. Nunc sit amet justo in ligula pharetra interdum ac at justo. Quisque quis dapibus turpis, sit amet condimentum orci. Fusce sagittis dui non nulla viverra, ac imperdiet diam laoreet. Vestibulum vehicula lorem tortor, ut luctus velit commodo vel. Nam cursus leo elit, in scelerisque enim pretium nec.  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus sapien dui, porttitor nec ligula non, interdum commodo ex. In a elit at magna rutrum tristique. Aliquam semper varius condimentum. Aenean vitae ultrices sem. Nunc accumsan quam justo, eu molestie felis facilisis posuere. Nulla at elit eu eros ullamcorper auctor. Maecenas imperdiet, ex eu dictum elementum, urna urna sagittis nisi, in dapibus nisi diam vel ante. Vestibulum ac nisi mollis, convallis turpis non, congue lacus. Cras sollicitudin dui quis lobortis ultrices. Donec non ipsum fermentum odio suscipit dignissim. Proin a bibendum nunc. Etiam gravida quis velit convallis aliquet. Vestibulum a venenatis augue, eget rhoncus nisi. Nulla facilisi. Duis consequat neque non diam mollis efficitur.  Proin id elementum eros. Aenean rhoncus id urna sit amet iaculis. Phasellus in est in urna dignissim facilisis vehicula sed arcu. Ut egestas nisi in est bibendum, ac placerat lectus finibus. Cras vitae quam vel quam semper consectetur. Etiam nibh quam, consectetur sit amet egestas ac, lacinia eget tortor. Pellentesque tempus ac ligula id convallis. Vivamus varius ligula "/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="12" style="0"/>
+            </Property>
+            <Property name="lineWrap" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Yes/No"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Button.Primary()"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancel/Maybe/Done"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Button.Primary()"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton3">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Callback"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new Button.Primary()"/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
