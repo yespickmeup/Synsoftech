@@ -281,7 +281,7 @@ public class Mysql {
         text = text + "public static void  add_data( to_" + table_name + " to_" + table_name + "){ \n";
 
         text = text + "try {\n Connection conn = MyConnection.connect();\n";
-        text = text + "String s0=\"insert into "  + table_name + "(\"\n";
+        text = text + "String s0=\"insert into " + table_name + "(\"\n";
 
         String col_names = "";
         String col_sql = "";
@@ -323,13 +323,14 @@ public class Mysql {
             }
 
         }
-
+       String table = table_name.substring(0, 1).toUpperCase();
+        table = table + table_name.substring(1, table_name.length());
         text = text + "     .ok();\n";
         text = text + "\n";
 
         text = text + "  PreparedStatement stmt = conn.prepareStatement(s0);" + "\n";
         text = text + "  stmt.execute();" + "\n";
-        text = text + "   Lg.s(S1_to.class, \"Successfully Added\");" + "\n";
+        text = text + "   Lg.s(" + table + ".class, \"Successfully Added\");" + "\n";
         text = text + "} catch (SQLException e) { \n  throw new RuntimeException(e);\n";
         text = text + " } finally { \n  MyConnection.close();\n  }\n  }\n";
         return text;
@@ -385,13 +386,15 @@ public class Mysql {
             }
 
         }
-
+        String table = table_name.substring(0, 1).toUpperCase();
+        table = table + table_name.substring(1, table_name.length());
+        
         text = text + "     .ok();\n";
         text = text + "\n";
 
         text = text + "  PreparedStatement stmt = conn.prepareStatement(s0);" + "\n";
         text = text + "  stmt.execute();" + "\n";
-        text = text + "   Lg.s(S1_to.class, \"Successfully Updated\");" + "\n";
+        text = text + "   Lg.s("+ table + ".class, \"Successfully Updated\");" + "\n";
 
         text = text + "} catch (SQLException e) { \n  throw new RuntimeException(e);\n";
         text = text + " } finally { \n  MyConnection.close();\n  }\n  }\n";
@@ -414,10 +417,12 @@ public class Mysql {
 
         text = text + "   +\" \";\n";
         text = text + "\n";
-
+        String table = table_name.substring(0, 1).toUpperCase();
+        table = table + table_name.substring(1, table_name.length());
+        
         text = text + "  PreparedStatement stmt = conn.prepareStatement(s0);" + "\n";
         text = text + "  stmt.execute();" + "\n";
-        text = text + "  Lg.s(S1_to.class, \"Successfully Deleted\");" + "\n";
+        text = text + "  Lg.s("+table+".class, \"Successfully Deleted\");" + "\n";
 
         text = text + "} catch (SQLException e) { \n  throw new RuntimeException(e);\n";
         text = text + " } finally { \n  MyConnection.close();\n  }\n  }\n";
@@ -483,10 +488,8 @@ public class Mysql {
                         col_name2 = col_name2 + "0" + ", ";
                     }
                 }
-            } else {
-//                type = "String";
-
-                if (t.is_selected == true) {
+            } else //                type = "String";
+             if (t.is_selected == true) {
 
                     if (t.data_type.equals("DOUBLE")) {
                         results = results + "double " + t.column_name + "=" + "rs.getDouble(" + (i + 1) + ");\n";
@@ -513,7 +516,6 @@ public class Mysql {
                         col_name2 = col_name2 + "\"\"" + ", ";
                     }
                 }
-            }
             i++;
 
         }
@@ -895,8 +897,8 @@ public class Mysql {
         update = update + " if (row < 0) { \n";
         update = update + " return;\n } \n";
         update = update + " to_" + table_name + " to = (to_" + table_name + ") tbl_" + table_name + "_ALM.get(row); \n";
-        update = update + " int id=0; \n";
-
+        update = update + " int id=to.id; \n";
+        
         String delete = " private void delete_" + table_name + "() { \n\n";
         delete = delete + " int row = tbl_" + table_name + ".getSelectedRow(); \n";
         delete = delete + " if (row < 0) { \n";
@@ -917,7 +919,7 @@ public class Mysql {
                         add = add + " double " + t.column_name + " = FitIn.toDouble(tf_" + t.column_name + ".getText()); \n";
                         select = select + " tf_" + t.column_name + ".setText(FitIn.fmt_wc_0(to." + t.column_name + ")); \n";
                         update = update + " double " + t.column_name + " = FitIn.toDouble(tf_" + t.column_name + ".getText()); \n";
-                    } else if (t.data_type.equalsIgnoreCase("int")) {
+                    } else if (t.data_type.equalsIgnoreCase("int")||t.data_type.equalsIgnoreCase("integer")) {
                         add = add + " int " + t.column_name + " = FitIn.toInt(tf_" + t.column_name + ".getText()); \n";
                         select = select + " tf_" + t.column_name + ".setText(FitIn.fmt_woc(to." + t.column_name + ")); \n";
                         update = update + " int " + t.column_name + " = FitIn.toInt(tf_" + t.column_name + ".getText()); \n";
