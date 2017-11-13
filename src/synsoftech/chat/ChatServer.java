@@ -19,7 +19,7 @@ import java.util.HashSet;
 
 public class ChatServer {
 
-    private static final int PORT = 9001;
+    private static final int PORT = 1000;
 
     private static final HashSet<String> names = new HashSet();
 
@@ -34,6 +34,18 @@ public class ChatServer {
         } catch (Exception e) {
         }
 
+    }
+
+    public static ServerSocket set(int new_port) {
+        ServerSocket listener = null;
+        try {
+            listener = new ServerSocket(new_port);
+            new Handler(listener.accept()).start();
+
+        } catch (IOException e) {
+            System.out.println("error: " + e);
+        }
+        return listener;
     }
 
     private static class Handler extends Thread {

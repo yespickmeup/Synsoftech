@@ -307,10 +307,10 @@ public class Dlg_test_chat extends javax.swing.JDialog {
 
             @Override
             public void run() {
-                String serverAddress = "192.168.1.151";
+                String serverAddress = "192.168.1.159";
                 Socket socket;
                 try {
-                    socket = new Socket(serverAddress, 9001);
+                    socket = new Socket(serverAddress, 1000);
                     in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                     out = new PrintWriter(socket.getOutputStream(), true);
 
